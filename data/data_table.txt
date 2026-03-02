@@ -1,0 +1,11 @@
+欄位名稱 (DB),建議型別,來源 JSON 路徑 (在 WeatherElement 下),異常處理需求,分析用途
+station_id,TEXT,(上層) StationId,不需,外鍵關聯用
+obs_time,TIMESTAMP,(上層) ObsTime -> DateTime,不需,時間對齊軸心 (ISO 8601)
+temp,REAL,AirTemperature,極度需要,影響空調負載的主要因子
+humid,REAL,RelativeHumidity,極度需要,體感溫度校正
+pressure,REAL,AirPressure,需要,氣候系統分析
+rain,REAL,Now -> Precipitation,需要,降雨與光照、用電相關性
+wind_speed,REAL,WindSpeed,需要,熱散失分析
+max_temp,REAL,DailyExtreme -> DailyHigh...,需要,當日極端用電預測
+min_temp,REAL,DailyExtreme -> DailyLow...,需要,夜間基載電力分析
+weather,TEXT,Weather,需要,"轉 None (若為 ""無"" 或 ""-99"")"

@@ -1,0 +1,54 @@
+1. 站點與地理資訊 (Metadata)
+1-1.站點名稱與編號： StationName: "國三S378K"、StationId: "CAV280" 。
+1-2.地理座標：提供 TWD67 與 WGS84 兩種座標格式（緯度 StationLatitude、經度 StationLongitude） 。
+1-3.行政區劃：包含縣市名稱（如 "高雄市"）與鄉鎮市區（如 "田寮區"），以及對應的行政代碼 。
+1-4.高度：站點的海拔高度（StationAltitude） 。
+
+2. 即時氣象數值 (Weather Elements)
+2-1.氣溫 (AirTemperature)：目前的攝氏溫度 。
+2-2.相對濕度 (RelativeHumidity)：以百分比表示 。
+2-3.氣壓 (AirPressure)：百帕 (hPa) 數值 。
+2-4.降雨量 (Precipitation)：位於 Now 層級下，代表目前的降雨紀錄 。
+2-5.風速與風向：包含 WindSpeed 與 WindDirection 。
+2-6天氣現象：如 "晴"、"多雲" 或 "陰" 的文字描述（Weather） 。
+
+3. 極端值與統計 (Calculated Data)
+3-1.每日最高/最低溫：位於 DailyExtreme 中，包含溫度值及其發生的精確時間 。
+3-2.陣風資訊 (GustInfo)：包含最大陣風風速（PeakGustSpeed） 。
+
+4. 時間戳記 (Time Stamps)
+4-1.觀測時間 (ObsTime)：這對你的時序資料庫最為關鍵，格式為 ISO 8601（例如 2026-02-20T19:00:00+08:00） 。
+
+
+1. Station & Geographic Metadata
+- StationName: String
+- StationId: String
+- StationLatitude_TWD67: Float
+- StationLongitude_TWD67: Float
+- StationLatitude_WGS84: Float
+- StationLongitude_WGS84: Float
+- CityName: String
+- DistrictName: String
+- AdministrativeCode: String
+- StationAltitude: Float
+
+2. Real-Time Weather Elements
+- AirTemperature: Float
+- RelativeHumidity: Float (percentage)
+- AirPressure: Float (hPa)
+- PrecipitationNow: Float
+- WindSpeed: Float
+- WindDirection: String (e.g., N, NE, E)
+- Weather: String (text description)
+
+
+3. Calculated Data (Extremes & Statistics)
+- DailyExtremeMaxTemperature: Float
+- DailyExtremeMaxTemperatureTime: DateTime (ISO 8601)
+- DailyExtremeMinTemperature: Float
+- DailyExtremeMinTemperatureTime: DateTime (ISO 8601)
+- PeakGustSpeed: Float
+
+
+4. Time Stamps
+- ObsTime: DateTime (ISO 8601)
