@@ -1,6 +1,6 @@
 import sqlite3
 from service.config import DATABASE_PATH
-db_path = DATABASE_PATH
+
 def loadpulse_init_db(db_path):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
@@ -39,6 +39,5 @@ def loadpulse_init_db(db_path):
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_time ON Weather_Logs (obs_time)')
     conn.commit()  
     conn.close()   
-    print("---complete---")
+    #print("---complete---")
 
-loadpulse_init_db(db_path)
